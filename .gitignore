@@ -1,0 +1,9 @@
+/.metadata/
+STARWEST
+node_modules
+**/.provarCaches/
+.metadata/
+.chromeProfiles/
+.testCycles/
+package-lock.json
+dreamhouse-lwc/

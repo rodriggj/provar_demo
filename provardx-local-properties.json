@@ -1,0 +1,36 @@
+{
+   "connectionOverride": 
+   [
+     {"connection": "Admin", "username": "STARWEST"}
+   ],
+    "provarHome":"/Users/gabrielrodriguez/Desktop/Provar_ANT_latest",
+    "projectPath":"/Users/gabrielrodriguez/Desktop/Root_Provar/provar_demo/ProvarProject",
+    "resultsPath":"/Users/gabrielrodriguez/Desktop/Root_Provar/provar_demo/ProvarProject/ANT/Results",
+    "smtpPath": "",
+    "resultsPathDisposition": "Increment", 
+    "testOutputLevel":"SEVERE",
+    "pluginOutputlevel":"SEVERE",
+    "stopOnError":false,
+    "lightningMode":true,
+    "connectionRefreshType":"Reuse",
+    "metadata":{
+       "metadataLevel":"Reuse",
+       "cachePath":"../.provarCaches"
+    },
+    "testprojectSecrets": "ProvarDevOps2021", 
+    "environment":{
+      "testEnvironment":"",
+      "webBrowser":"Chrome",
+      "webBrowserConfig":"Full Screen",
+      "webBrowserProviderName":"Desktop",
+      "webBrowserDeviceName":"Full Screen"
+    },
+    "testPlan":[
+       "Regression Plan"
+    ],
+    "testplanFeatures": [
+       {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
+       {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"},
+       {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "true"}
+    ]
+ }
