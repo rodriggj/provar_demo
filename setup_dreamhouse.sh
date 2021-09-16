@@ -1,5 +1,10 @@
 #!/bin/bash
 
+### RUN THIS COMMAND FIRST ALONE ($1 = your alias name for your dev hub) ###
+sfdx auth:web:login --setdefaultdevhubusername --setalias $1
+sfdx config:set defaultdevhubusername=DevHub --global $1
+### END ###
+
 scratch_org_username=starwest21@provartesting.com
 
 # Create Scratch Org Project
