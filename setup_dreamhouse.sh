@@ -16,7 +16,7 @@ git clone https://github.com/dreamhouseapp/dreamhouse-lwc
 echo "--- Create Scratch Org ---"
 sfdx force:config:set defaultdevhubusername=DevHub2 --global
 sfdx force:org:create -s -f dreamhouse-lwc/config/project-scratch-def.json -a STARWEST username=starwest21@provartesting.com
-sfdx force:config:set defaultusername=dreamhouse --global
+sfdx force:config:set defaultusername=STARWEST --global
 
 # Deploy Dreamhouse to Scratch Org
 echo "--- Deploy Dreamhouse to Scratch Org ---"
