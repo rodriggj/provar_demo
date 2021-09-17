@@ -34,7 +34,7 @@ cd ../dreamhouse-lwc
 
 # Assign dreamhouse permission set to the default user
 echo "--- Assign dreamhouse permission set to the default user ---"
-sfdx force:user:permset:assign -n STARWEST
+sfdx force:user:permset:assign -n dreamhouse
 
 # Import sample data into Scratch Org
 echo "--- Import sample data into Scratch Org ---"
