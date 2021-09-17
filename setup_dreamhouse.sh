@@ -1,11 +1,6 @@
 #!/bin/bash
 
-### RUN THIS COMMAND FIRST ALONE ($1 = your alias name for your dev hub) ###
-sfdx auth:web:login --setdefaultdevhubusername --setalias $1
-sfdx config:set defaultdevhubusername=DevHub --global $1
-### END ###
-
-scratch_org_username=starwest21@provartesting.com
+sfdx force:org:list --clean
 
 # Create Scratch Org Project
 sfdx force:project:create -n STARWEST
@@ -16,15 +11,17 @@ cp .forceignore STARWEST/.forceignore
 # Clone Dreamhouse App
 echo "--- Clone Dreamhouse App Scratch Org project ---"
 git clone https://github.com/dreamhouseapp/dreamhouse-lwc
-cd dreamhouse-lwc
 
 # Create Scratch Org
 echo "--- Create Scratch Org ---"
-sfdx force:org:create -s -f config/project-scratch-def.json -a dreamhouse username=$scratch_org_username
+sfdx force:config:set defaultdevhubusername=DevHub2 --global
+sfdx force:org:create -s -f dreamhouse-lwc/config/project-scratch-def.json -a STARWEST username=starwest21@provartesting.com
+sfdx force:config:set defaultusername=dreamhouse --global
 
 # Deploy Dreamhouse to Scratch Org
 echo "--- Deploy Dreamhouse to Scratch Org ---"
-sfdx force:source:push -u $1
+cd dreamhouse-lwc
+sfdx force:source:push -u STARWEST
 
 # Deploy Admin Profile to Scratch Org
 echo "--- Deploy Admin Profile to Scratch Org ---"
@@ -32,13 +29,13 @@ cd ../STARWEST
 sfdx force:mdapi:retrieve -r package -u $1 -k package.xml
 unzip ./package/unpackaged.zip
 sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
-sfdx force:source:push -u $scratch_org_username -f
+sfdx force:source:push -u STARWEST -f
 cd ../dreamhouse-lwc
 
 # Assign dreamhouse permission set to the default user
 echo "--- Assign dreamhouse permission set to the default user ---"
-sfdx force:user:permset:assign -n dreamhouse -u $1
+sfdx force:user:permset:assign -n STARWEST
 
 # Import sample data into Scratch Org
 echo "--- Import sample data into Scratch Org ---"
-sfdx force:data:tree:import -p data/sample-data-plan.json -u $1
+sfdx force:data:tree:import -p data/sample-data-plan.json 

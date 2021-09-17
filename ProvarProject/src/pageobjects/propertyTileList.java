@@ -16,7 +16,7 @@ import com.provar.core.testapi.annotations.*;
 public class propertyTileList {
 
 	@LinkType()
-	@JavascriptBy(jspath = "return {provarContext}.querySelector('c-property-tile-list').shadowRoot.querySelector('c-property-tile').shadowRoot.querySelector('a')")
+	@FindBy(xpath = ".//c-property-tile-list//c-property-tile[1]/a")
 	public WebElement tileOne;
 	
 }
